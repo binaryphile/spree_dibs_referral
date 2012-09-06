@@ -1,0 +1,10 @@
+<!--
+  insert_before 'fieldset#payment'
+-->
+<fieldset id="billing">
+  <legend><%= t(:referral) %></legend>
+  <div>
+    <p><%= t(:referral_checkout_message) %></p>
+    <%= form.collection_select :dibs_referral_id, Spree::User.dibs_referrers, :id, :email, { include_blank: true } %>
+  </div>
+</fieldset>'

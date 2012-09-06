@@ -1,0 +1,4 @@
+<!--
+  insert_before 'th:contains(":total")'
+-->
+<th><%= t(:referral) %></th>

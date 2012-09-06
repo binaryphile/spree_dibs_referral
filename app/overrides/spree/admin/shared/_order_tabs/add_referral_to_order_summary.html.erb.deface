@@ -1,0 +1,4 @@
+<!--
+  insert_after '#payment_status'
+-->
+<h5 id="dibs_referral" style="width: 100%;"><%= t(:referral) %>: <%= @order.dibs_referral.nil? ? t(:nothing) : @order.dibs_referral.email %></h5>

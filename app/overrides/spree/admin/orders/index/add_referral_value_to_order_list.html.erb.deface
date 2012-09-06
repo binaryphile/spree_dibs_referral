@@ -1,0 +1,4 @@
+<!--
+  insert_before 'td:contains(".total")'
+-->
+<td><%= order.dibs_referral.nil? ? t(:nothing) : (link_to order.dibs_referral.email, admin_user_path(order.dibs_referral)) %></td>

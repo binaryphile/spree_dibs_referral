@@ -1,10 +1,25 @@
 <!--
   insert_before 'fieldset#payment'
 -->
+<% content_for :head do %>
+  <script type="text/javascript">
+    var ask_referral = function () {
+      alert('Please select a referral.');
+      return false;
+    };
+    $(document).ready(function() {
+      $('input.button').removeClass('primary').addClass('disabled');
+      $('input.button').on('click', ask_referral);
+      $('#order_dibs_referral_id').click(function() {
+        $('input.button').removeClass('disabled').addClass('primary');
+        $('input.button').off();
+      });
+    })
+  </script>
+<% end %>
 <fieldset id="billing">
   <legend><%= t(:referral) %></legend>
   <div>
-    <p><%= t(:referral_checkout_message) %></p>
-    <%= form.collection_select :dibs_referral_id, Spree::User.dibs_referrers, :id, :email, { include_blank: true } %>
+    <label><%= t(:referral_checkout_message) %><%= form.collection_select :dibs_referral_id, Spree::User.dibs_referrers, :id, :email, { include_blank: true, prompt: true }, { class: 'required' } %></label><span class="required">*</span>
   </div>
-</fieldset>'
+</fieldset>

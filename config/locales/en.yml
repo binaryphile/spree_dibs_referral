@@ -3,5 +3,5 @@
 
 en:
   referral: Referral
-  referral_checkout_message: "If you were referred to us by one of our salespeople, please select their name:"
+  referral_checkout_message: 'Please select who referred you to us, or blank for no referral: '
   nothing: ""

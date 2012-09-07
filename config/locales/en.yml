@@ -5,3 +5,4 @@ en:
   referral: Referral
   referral_checkout_message: 'Please select who referred you to us, or blank for no referral: '
   nothing: ""
+  please_select: Please select a referral.  Select blank for no referral.

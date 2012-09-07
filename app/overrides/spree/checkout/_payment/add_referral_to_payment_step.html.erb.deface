@@ -4,7 +4,7 @@
 <% content_for :head do %>
   <script type="text/javascript">
     var ask_referral = function () {
-      alert('Please select a referral.');
+      alert('<%= t(:please_select) %>');
       return false;
     };
     $(document).ready(function() {

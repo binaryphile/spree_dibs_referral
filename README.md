@@ -10,7 +10,7 @@ spree_dibs_referral is compatible with Ruby 1.9.x and Spree 1.1.
 
 1. Edit your Gemfile, adding the line:
 
-`gem 'spree_dibs_referral', :git => 'git://github.com/lilleyt/spree_dibs_referral`
+`gem 'spree_dibs_referral', :git => 'git://github.com/lilleyt/spree_dibs_referral, :branch => '1-1-stable'`
 
 2. Run the following commands:
 

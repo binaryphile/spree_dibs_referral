@@ -1,6 +1,4 @@
 <!--
   insert_before '[data-hook=outside_cart_form]'
 -->
-<% if current_user and current_user.has_role? 'dibs_referral' %>
   <a href="<%= cart_path %>/<%= @order.number %>/token/<%= @order.token %>"><%= @order.token %></a>
-<% end %>

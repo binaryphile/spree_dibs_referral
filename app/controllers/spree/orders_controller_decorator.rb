@@ -1,7 +1,7 @@
 Spree::OrdersController.class_eval do
   private
     def check_authorization
-      #debugger
+      debugger
       session[:access_token] ||= params[:token]
       request_order =  Spree::Order.find_by_number(params[:id])
       order = current_order
@@ -23,12 +23,22 @@ Spree::OrdersController.class_eval do
     end
 
     def dibs_clone(order)
-      new_order = current_order(true)
-      new_order.line_items.destroy_all
+      debugger
+      my_order = current_order(true)
+      my_order.line_items.destroy_all
       order.line_items.each do |line_item|
         new_order.add_variant(line_item.variant, line_item.quantity)
       end
-      new_order.dibs_referral = order.user
-      new_order
+      my_order.dibs_referral = order.user
+      session[:order_id] = my_order.id
+      my_order
+    end
+
+    def new_order
+      @current_order = Spree::Order.new
+      before_save_new_order
+      @current_order.save!
+      after_save_new_order
+      @current_order
     end
 end

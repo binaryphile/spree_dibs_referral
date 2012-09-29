@@ -7,13 +7,21 @@
       alert('<%= t(:please_select) %>');
       return false;
     };
+    var replace_blank = function() {
+      if (!$(this).text()) {
+        $(this).text('N/A');
+      };
+    }
     $(document).ready(function() {
+      $('#order_dibs_referral_id option').each(replace_blank);
       $('input.button').removeClass('primary').addClass('disabled');
-      $('input.button').on('click', ask_referral);
-      $('#order_dibs_referral_id').click(function() {
-        $('input.button').removeClass('disabled').addClass('primary');
-        $('input.button').off();
-      });
+      if ($('#order_dibs_referral_id :selected').text() == 'Please select') {
+        $('input.button').on('click', ask_referral);
+        $('#order_dibs_referral_id').click(function() {
+          $('input.button').removeClass('disabled').addClass('primary');
+          $('input.button').off();
+        });
+        };
     })
   </script>
 <% end %>

@@ -4,7 +4,7 @@ Spree::OrderMailer.class_eval do
     subject = (resend ? "[#{t(:resend).upcase}] " : '')
     subject += "#{Spree::Config[:site_name]} #{t('order_mailer.confirm_email.subject')} ##{order.number}"
     if order.dibs_referral
-      mail(to: order.email, subject: subject, bcc: order.dibs_referral.email) do |format|
+      mail(to: order.email, subject: subject, cc: order.dibs_referral.email) do |format|
         format.text
         format.html
       end
@@ -21,7 +21,7 @@ Spree::OrderMailer.class_eval do
     subject = (resend ? "[#{t(:resend).upcase}] " : '')
     subject += "#{Spree::Config[:site_name]} #{t('order_mailer.cancel_email.subject')} ##{order.number}"
     if order.dibs_referral
-      mail(to: order.email, subject: subject, bcc: order.dibs_referral.email) do |format|
+      mail(to: order.email, subject: subject, cc: order.dibs_referral.email) do |format|
         format.text
         format.html
       end
@@ -38,7 +38,7 @@ Spree::OrderMailer.class_eval do
     subject = (resend ? "[#{t(:resend).upcase}] " : '')
     subject += "#{Spree::Config[:site_name]} #{t('order_mailer.void_email.subject')} ##{order.number}"
     if order.dibs_referral
-      mail(to: order.email, subject: subject, bcc: order.dibs_referral.email) do |format|
+      mail(to: order.email, subject: subject, cc: order.dibs_referral.email) do |format|
         format.text
         format.html
       end
@@ -55,7 +55,7 @@ Spree::OrderMailer.class_eval do
     subject = (resend ? "[#{t(:resend).upcase}] " : '')
     subject += "#{Spree::Config[:site_name]} #{t('order_mailer.capture_email.subject')} ##{order.number}"
     if order.dibs_referral
-      mail(to: order.email, subject: subject, bcc: order.dibs_referral.email) do |format|
+      mail(to: order.email, subject: subject, cc: order.dibs_referral.email) do |format|
         format.text
         format.html
       end

@@ -1,11 +1,19 @@
 Spree::OrdersController.class_eval do
+  after_filter :dibs_capture_referral, only: :edit
+
   private
+    def dibs_capture_referral
+      if session[:dibs_referral] and (!@current_order.dibs_referral or session[:dibs_referral] != @current_order.dibs_referral.email)
+        @current_order.dibs_referral = Spree::User.find_by_email(session[:dibs_referral])
+        @current_order.save
+      end
+    end
+
     def check_authorization
       debugger
       session[:access_token] ||= params[:token]
       request_order =  Spree::Order.find_by_number(params[:id])
       order = current_order
-
       if request_order.nil? and order.nil?
         authorize! :create, Spree::Order.new
       else

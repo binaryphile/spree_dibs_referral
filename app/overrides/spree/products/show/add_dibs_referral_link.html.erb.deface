@@ -1,0 +1,7 @@
+<!--
+insert_before ".product-title"
+-->
+<% if @current_user and @current_user.has_role? "dibs_referral" %>
+  <%= mail_to "friend", t(:product_referral), subject: t(:product_referral_subject) % accurate_title, body: "#{product_url}?dibs_referral=#{URI::encode_www_form_component @current_user.email}" %>
+<% end %>
+

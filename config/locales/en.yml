@@ -3,8 +3,10 @@
 
 en:
   referral: Referral
-  referral_checkout_message: 'Please select who referred you to us, or blank for no referral: '
+  referral_checkout_message: 'Please select the person who referred you to us: '
   nothing: ""
-  please_select: Please select a referral.  Select blank for no referral.
   completed_referrals: Completed Referrals
   referral_templates: Referral Templates
+  please_select: Please select a referral.
+  product_referral: Send Referral Link
+  product_referral_subject: "%s link from DidItBetter.com Software"

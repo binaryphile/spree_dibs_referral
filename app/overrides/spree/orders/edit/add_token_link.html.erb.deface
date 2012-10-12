@@ -1,0 +1,7 @@
+<!--
+  insert_after 'code[erb-loud]:contains("continue")'
+-->
+<% if @current_user and @current_user.has_role? "dibs_referral" %>
+  <%= mail_to t(:friend), t(:send_referral), subject: t(:cart_referral_subject), body: "#{cart_url}/#{@order.number}/token/#{@order.token}", class: 'button gray' %>
+<% end %>
+

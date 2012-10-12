@@ -1,4 +1,7 @@
 <!--
-  insert_before '[data-hook=outside_cart_form]'
+  insert_after 'code[erb-loud]:contains("continue")'
 -->
-  <a href="<%= cart_path %>/<%= @order.number %>/token/<%= @order.token %>"><%= @order.token %></a>
+<% if @current_user and @current_user.has_role? "dibs_referral" %>
+  <%= mail_to t(:friend), t(:send_referral), subject: t(:cart_referral_subject), body: "#{cart_url}/#{@order.number}/token/#{@order.token}", class: 'button gray' %>
+<% end %>
+

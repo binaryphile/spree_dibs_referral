@@ -1,0 +1,7 @@
+<!--
+insert_before '.add-to-cart code[erb-silent]:contains("else")'
+-->
+<% if @current_user and @current_user.has_role? "dibs_referral" %>
+  <p><%= mail_to t(:friend), t(:send_referral), subject: t(:product_referral_subject) % accurate_title, body: "#{product_url}?dibs_referral=#{URI::encode_www_form_component @current_user.email}", class: 'button large gray' %></p>
+<% end %>
+

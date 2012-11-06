@@ -1,5 +1,5 @@
 ApplicationController.class_eval do
-  before_filter :dibs_session_referral, only: [:show, :edit, :index]
+  before_filter :dibs_session_referral, only: [:show, :edit, :index, :populate]
 
   private
     def dibs_session_referral

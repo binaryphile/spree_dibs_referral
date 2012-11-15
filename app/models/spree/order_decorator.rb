@@ -4,13 +4,17 @@ Spree::Order.class_eval do
 
   def dibs_referral_line_items
     result = {}
+    result[:variants] = {}
+    result[:line_item_options] = []
     line_items.each do | item |
-      result.update("variants[#{item.variant.id}]" => item.quantity)
+      result[:variants][item.variant.id] = item.quantity
+      options = {}
       if item.respond_to?(:ad_hoc_option_values) and item.ad_hoc_option_values and !item.ad_hoc_option_values.empty?
         item.ad_hoc_option_values.each do | option |
-          result.update("ad_hoc_option_values[#{option.ad_hoc_option_type.id}]" => option.id)
+          options[option.ad_hoc_option_type.id] = option.id
         end
       end
+      result[:line_item_options] << options
     end
     result
   end

@@ -11,9 +11,10 @@ Spree::OrdersController.class_eval do
     return if !request.get?
     return if !params.include? :line_item_options
     @order.line_items.each_with_index do |item, index|
-      params[:ad_hoc_option_values] = params[:line_item_options][index]
-      item.ad_hoc_option_values = ad_hoc_option_value_ids.map { |cid| Spree::AdHocOptionValue.find(cid) }
+      params[:ad_hoc_option_values] = params[:line_item_options]["#{index}"]
+      @order.dibs_add_variant(item, ad_hoc_option_value_ids)
     end 
+    @order.update!
   end
 
   def dibs_empty

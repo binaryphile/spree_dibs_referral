@@ -101,26 +101,6 @@ tracked.
 
 ![my_account]
 
-### Sending a Product Referral
-
-Once you are assigned the referral role, every product page has a new
-button to send a referral.
-
-![product_referral]
-
-When you click the button, your local email client will be started.  The
-message will be prepopulated with a subject which names the product
-being referred.  The _To_ field will have a placeholder (default:
-Friend), since the Rails helper for mailto requires that field.
-
-![product_email]
-
-In the message body will be the link to the store which includes your
-email as the referrer id.  Once the user clicks on the link, they will
-be taken to the product page (but the product will not be added to their
-cart), and your id will be saved in their session so that any future
-purchase will list you as the referrer.
-
 ### Sending a Cart Referral
 
 As a referrer, you will also see a _Send Referral_ button on your cart.
@@ -167,8 +147,6 @@ License
 [order_list]: https://github.com/downloads/lilleyt/spree_dibs_referral/order_list.png
 [order_detail]: https://github.com/downloads/lilleyt/spree_dibs_referral/order_detail.png
 [my_account]: https://github.com/downloads/lilleyt/spree_dibs_referral/my_account.png
-[product_referral]: https://github.com/downloads/lilleyt/spree_dibs_referral/product_referral.png
-[product_email]: https://github.com/downloads/lilleyt/spree_dibs_referral/product_email.png
 [cart_referral]: https://github.com/downloads/lilleyt/spree_dibs_referral/cart_referral.png
 [cart_email]: https://github.com/downloads/lilleyt/spree_dibs_referral/cart_email.png
 [DidItBetter Wiki]: http://wiki.diditbetter.com/doku.php?id=Agent_Modules:Agent_Modules

@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version     = '1.1.3'
   s.summary     = 'A simple referral-tracking system based on a referral role.'
   #s.description = 'TODO: Add (optional) gem description here'
-  s.required_ruby_version = '>= 1.8.7'
+  s.required_ruby_version = '>= 1.9.2'
 
   s.author    = 'Ted Lilley'
   s.email     = 'tlilley@diditbetter.com'

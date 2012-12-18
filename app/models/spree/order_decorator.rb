@@ -4,10 +4,12 @@ Spree::Order.class_eval do
 
   def dibs_referral_line_items
     result = {}
-    result[:variants] = {}
+    result[:products] = {}
+    result[:quantity] = {}
     result[:line_item_options] = {}
     line_items.each_with_index do |item, index|
-      result[:variants][item.variant.id] = item.quantity
+      result[:products][index] = item.variant.id
+      result[:quantity][item.variant.id] = item.quantity
       options = {}
       if item.respond_to?(:ad_hoc_option_values) and item.ad_hoc_option_values and !item.ad_hoc_option_values.empty?
         item.ad_hoc_option_values.each do | option |
@@ -23,5 +25,10 @@ Spree::Order.class_eval do
     item.ad_hoc_option_values = ad_hoc_option_values.map { |cid| Spree::AdHocOptionValue.find(cid) }
     item.price = item.variant.price + item.ad_hoc_option_values.map(&:price_modifier).compact.sum
     item.save
+  end
+
+  def contains?(variant, ad_hoc_option_value_ids, product_customizations)
+    debugger
+    nil
   end
 end

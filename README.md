@@ -28,6 +28,27 @@ bundle exec rake db:migrate
 
 Start your Spree instance and you're done.
 
+Known Issues
+============
+
+The spree_flexi_variants extension
+----------------------------------
+
+The referral link on the cart page cannot support carts which have items
+that differ only by their ad-hoc options (i.e. they have the same Spree
+variant id but different ad-hoc options) as well as having different
+quantities.  The user who clicks on such a referral link will get a cart
+that has both items, with the proper options, but the quantities for
+both will be the quantity of the last such item.
+
+For example, if you have two t-shirt items in your cart that only differ
+by quantity and the ad-hoc option of size, say two of the small and
+three of the large, then the user receiving the referral link will get a
+quantity of three on both the small and large t-shirts.
+
+There is no workaround, you simply can't do this if you're using the
+spree_flexi_variants extension.
+
 Details
 =======
 

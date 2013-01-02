@@ -28,7 +28,6 @@ Spree::Order.class_eval do
   end
 
   def contains?(variant, ad_hoc_option_value_ids, product_customizations)
-    debugger
     nil
   end
 end

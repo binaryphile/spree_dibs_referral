@@ -1,7 +1,7 @@
 <!--
   insert_after '[data-hook=account_my_orders]'
 -->
-<% if current_user and current_user.has_role? 'dibs_referral' %>
+<% if current_user and current_user.has_spree_role? 'dibs_referral' %>
   <h3><%= t(:completed_referrals) %></h3>
   <% if @user.dibs_referrals.present? %>
     <table class="order-summary">

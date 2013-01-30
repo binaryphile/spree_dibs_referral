@@ -12,11 +12,13 @@ the payment step of checkout.
 Installation
 ============
 
-spree_dibs_referral is compatible with Ruby 1.9.x and Spree 1.1.
+The master branch of spree_dibs_referral is compatible with Ruby 1.9.x
+and Spree 1.3.  There are stable branches for Spree 1.1, 1.2 and 1.3.
+Use the appropriate branch for your version as shown below.
 
 1. Edit your Gemfile, adding the line:
 
-`gem 'spree_dibs_referral', :git => 'git://github.com/lilleyt/spree_dibs_referral, :branch => '1-1-stable'`
+`gem 'spree_dibs_referral', :git => 'git://github.com/lilleyt/spree_dibs_referral, :branch => '1-3-stable'`
 
 2. Run the following commands:
 

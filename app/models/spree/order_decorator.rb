@@ -1,5 +1,5 @@
 Spree::Order.class_eval do
-  belongs_to :dibs_referral, class_name: 'Spree::User'
+  belongs_to :dibs_referral, class_name: Spree.user_class
   attr_accessible :dibs_referral_id
 
   def dibs_referral_line_items

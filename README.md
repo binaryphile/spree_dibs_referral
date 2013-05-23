@@ -18,7 +18,7 @@ Use the appropriate branch for your version as shown below.
 
 1. Edit your Gemfile, adding the line:
 
-`gem 'spree_dibs_referral', :git => 'git://github.com/lilleyt/spree_dibs_referral, :branch => '1-3-stable'`
+`gem 'spree_dibs_referral', :git => 'git://github.com/binaryphile/spree_dibs_referral, :branch => '1-3-stable'`
 
 2. Run the following commands:
 

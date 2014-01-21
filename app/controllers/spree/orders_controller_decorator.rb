@@ -3,6 +3,7 @@ Spree::OrdersController.class_eval do
   after_filter :dibs_after, only: :populate
 
   def dibs_before
+    params.permit(:dibs_referral_id)
     return if !request.get?
     dibs_empty
   end
@@ -13,7 +14,7 @@ Spree::OrdersController.class_eval do
     @order.line_items.each_with_index do |item, index|
       params[:ad_hoc_option_values] = params[:line_item_options]["#{index}"]
       @order.dibs_add_variant(item, ad_hoc_option_value_ids)
-    end 
+    end
     @order.update!
   end
 

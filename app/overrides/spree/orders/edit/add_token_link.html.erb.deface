@@ -1,6 +1,6 @@
 <!--
   insert_after 'erb[loud]:contains("continue")'
 -->
-<% if @current_user and @current_user.has_spree_role? "dibs_referral" %>
-  <%= mail_to t(:friend), t(:send_referral), subject: t(:cart_referral_subject), body: "http://#{Spree::Config[:site_url]}/dibs-referral?dibs_referral=#{URI::encode_www_form_component @current_user.email}&#{@order.dibs_referral_line_items.to_param}", class: 'button gray' %>
+<% if spree_current_user and spree_current_user.has_spree_role? "dibs_referral" %>
+  <%= mail_to t(:friend), t(:send_referral), subject: t(:cart_referral_subject), body: "http://#{Spree::Config[:site_url]}/dibs-referral?dibs_referral=#{URI::encode_www_form_component spree_current_user.email}&#{@order.dibs_referral_line_items.to_param}", class: 'button gray' %>
 <% end %>

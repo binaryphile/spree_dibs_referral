@@ -11,6 +11,7 @@ Spree::OrdersController.class_eval do
   def dibs_after
     return if !request.get?
     return if !params.include? :line_item_options
+    @order = current_order
     @order.line_items.each_with_index do |item, index|
       params[:ad_hoc_option_values] = params[:line_item_options]["#{index}"]
       @order.dibs_add_variant(item, ad_hoc_option_value_ids)

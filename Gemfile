@@ -1,9 +1,6 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-if RUBY_VERSION < '1.9'
-  gem 'ruby-debug'
-else
-  gem 'debugger'
-end
+# Provides basic authentication functionality for testing parts of your engine
+gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '2-1-stable'
 
 gemspec

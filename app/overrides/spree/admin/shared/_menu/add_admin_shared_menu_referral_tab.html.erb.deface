@@ -1,0 +1,4 @@
+<!--
+insert_bottom '[data-hook=admin_tabs]'
+-->
+<%= tab :dibs_referrals, url: spree.admin_dibs_referrals_path %>

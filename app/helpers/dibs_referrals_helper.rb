@@ -1,0 +1,2 @@
+module DibsReferralsHelper
+end

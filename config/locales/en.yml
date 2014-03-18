@@ -11,4 +11,8 @@ en:
   send_referral: Send Referral
   cart_referral_subject: Hey
   friend: Friend
-
+  spree:
+    admin:
+      tab:
+        configuration: config
+        dibs_referrals: Referrals

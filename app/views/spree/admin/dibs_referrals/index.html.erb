@@ -1,1 +1,18 @@
-<h2>R100</h2>
+<% unless @referrals.any? %>
+<h2>No referrals</h2>
+<% else %>
+<table>
+  <thead>
+    <th>Number</th>
+    <th>State</th>
+    <th>Referral</th>
+  </thead>
+  <% @referrals.each do |referral| %>
+  <tr>
+    <td><%= referral.number %></td>
+    <td><%= referral.state %></td>
+    <td><%= referral.dibs_referral.email %></td>
+  <tr>
+  <% end %>
+  </table>
+<% end %>

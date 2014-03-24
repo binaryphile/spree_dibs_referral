@@ -3,4 +3,7 @@ FactoryGirl.define do
   #
   # Example adding this to your spec_helper will load these Factories for use:
   # require 'spree_dibs_referral/factories'
+  factory :referral_order, parent: :order do
+    association :dibs_referral, factory: :user
+  end
 end

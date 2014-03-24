@@ -1,0 +1,4 @@
+<!--
+insert_bottom '[data-hook=admin_tabs]'
+-->
+<%= tab :dibs_referrals %>

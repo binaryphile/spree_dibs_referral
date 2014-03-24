@@ -3,8 +3,8 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_dibs_referral'
   s.version     = '2.1.4'
-  s.summary     = 'Add gem summary here'
-  s.description = 'Add (optional) gem description here'
+  s.summary     = 'Referral tracking capability for Spree Commerce'
+  # s.description = 'Add (optional) gem description here'
   s.required_ruby_version = '>= 1.9.3'
 
   s.author    = 'DidItBetter.com Software'

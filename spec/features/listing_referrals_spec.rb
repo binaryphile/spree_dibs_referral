@@ -5,10 +5,11 @@ describe "Referral Listing" do
 
   before(:each) do
     unless example.metadata[:no_referrals]
-      create(:referral_order, created_at: 1.day.from_now, completed_at: 1.day.from_now, number: "R100")
-      create(:referral_order, created_at: 1.day.from_now, completed_at: 1.day.from_now, number: "R101")
+      create(:referral_order, created_at: 2.days.from_now, completed_at: 2.days.from_now, state: "complete", number: "R100")
+      create(:referral_order, created_at: 1.day.from_now, completed_at: 1.day.from_now, state: "complete", number: "R101")
     end
-    create(:order, created_at: 1.day.from_now, completed_at: 1.day.from_now, number: "R102")
+    create(:order, created_at: 1.day.from_now, completed_at: 1.day.from_now, state: "complete", number: "R102")
+    create(:order, created_at: 1.day.from_now, completed_at: 1.day.from_now, number: "R103")
     visit spree.admin_path
   end
 
@@ -27,14 +28,22 @@ describe "Referral Listing" do
     end
 
     it "should not list non-referral orders" do
-      expect(page).to have_no_content("R102")
+      expect(page).not_to have_content("R102")
     end
 
     it "should have column names" do
       expect(page).to have_content("Number")
-      expect(page).to have_content("State")
       expect(page).to have_content("Referral")
-      expect(page).to have_content("Commission")
+      expect(page).to have_content("Date")
+      expect(page).to have_content("Total")
+    end
+
+    it "should only list completed orders" do
+      expect(page).not_to have_content("R103")
+    end
+
+    it "should have a search filter" do
+      expect(page).to have_content("Search")
     end
   end
 end

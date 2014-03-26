@@ -1,6 +1,6 @@
 Spree::Order.class_eval do
   belongs_to :dibs_referral, class_name: 'Spree::User'
-  scope :dibs_referrals, -> { where.not(dibs_referral_id: nil) }
+  scope :dibs_referrals, -> { where.not({ dibs_referral_id: nil, completed_at: nil }) }
 
   def dibs_referral_line_items
     result = {}

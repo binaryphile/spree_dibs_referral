@@ -1,18 +1,69 @@
+<%= paginate @referrals %>
+
+<% content_for :table_filter_title do %>
+  <%= Spree.t(:search) %>
+<% end %>
+
+<% content_for :table_filter do %>
+  <div data-hook="admin_orders_index_search">
+    <%= search_form_for [:admin, @search] do |f| %>
+      <div class="field-block alpha four columns">
+        <div class="date-range-filter field">
+          <%= label_tag nil, Spree.t(:date_range) %>
+          <div class="date-range-fields">
+            <%= f.text_field :created_at_gt, :class => 'datepicker datepicker-from', :value => params[:q][:created_at_gt], :placeholder => Spree.t(:start) %>
+
+            <span class="range-divider">
+              <i class="icon-arrow-right"></i>
+            </span>
+
+            <%= f.text_field :created_at_lt, :class => 'datepicker datepicker-to', :value => params[:q][:created_at_lt], :placeholder => Spree.t(:stop) %>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="four columns">
+        <div class="field">
+          <%= label_tag nil, Spree.t(:order_number, :number => '') %>
+          <%= f.text_field :number_cont %>
+        </div>
+        <div class="field">
+          <%= label_tag nil, Spree.t(:referral_email) %>
+          <%= f.email_field :email_cont %>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div class="actions filter-actions">
+        <div data-hook="admin_orders_index_search_buttons">
+          <%= button Spree.t(:filter_results), 'icon-search' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
 <% unless @referrals.any? %>
 <h2>No referrals</h2>
 <% else %>
 <table>
   <thead>
+    <th>Completion Date</th>
     <th>Number</th>
-    <th>State</th>
     <th>Referral</th>
+    <th>Total</th>
   </thead>
   <% @referrals.each do |referral| %>
   <tr>
+    <td><%= referral.completed_at.to_date %></td>
     <td><%= referral.number %></td>
-    <td><%= referral.state %></td>
     <td><%= referral.dibs_referral.email %></td>
+    <td><%= referral.display_total.to_html %></td>
   <tr>
   <% end %>
   </table>
 <% end %>
+
+<%= paginate @referrals %>

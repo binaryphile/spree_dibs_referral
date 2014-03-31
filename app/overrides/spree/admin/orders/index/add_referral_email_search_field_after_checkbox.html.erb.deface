@@ -1,0 +1,7 @@
+<!--
+insert_after ".checkbox"
+-->
+<div class="field">
+  <%= label_tag nil, Spree.t(:referral_email) %>
+  <%= f.email_field :dibs_referral_email_cont %>
+</div>

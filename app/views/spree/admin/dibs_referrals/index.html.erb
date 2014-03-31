@@ -5,8 +5,8 @@
 <% end %>
 
 <% content_for :table_filter do %>
-  <div data-hook="admin_orders_index_search">
-    <%= search_form_for [:admin, @search] do |f| %>
+  <div>
+    <%= search_form_for [:admin, @search], url: admin_dibs_referrals_path do |f| %>
       <div class="field-block alpha four columns">
         <div class="date-range-filter field">
           <%= label_tag nil, Spree.t(:date_range) %>

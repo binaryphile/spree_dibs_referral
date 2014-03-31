@@ -15,4 +15,5 @@ en:
     admin:
       tab:
         configuration: config
+        promotions: promos
         dibs_referrals: Referrals

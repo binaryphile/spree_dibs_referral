@@ -1,4 +1,6 @@
-<%= paginate @referrals %>
+<% content_for :page_title do %>
+  <%= Spree.t(:listing_filters) %>
+<% end %>
 
 <% content_for :table_filter_title do %>
   <%= Spree.t(:search) %>
@@ -44,6 +46,8 @@
     <% end %>
   </div>
 <% end %>
+
+<%= paginate @referrals %>
 
 <% unless @referrals.any? %>
 <h2>No referrals</h2>
